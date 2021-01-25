@@ -7,6 +7,5 @@ export default function HomePage() {
 		<div className="homepage">
 			<Directory />
 		</div>
-
 	)
 }
