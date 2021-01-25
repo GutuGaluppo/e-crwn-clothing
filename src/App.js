@@ -4,14 +4,16 @@ import './App.css'
 
 import HomePage from './pages/homepage/HomePage'
 import ShopPage from './pages/shop/ShopComponent'
+import Header from './components/header/Header'
 
 function App() {
 	return (
 		<>
-		<Switch>
-			<Route exact path="/" component={HomePage}/>
-			<Route path="/shop" component={ShopPage}/>
-		</Switch>
+			<Header />
+			<Switch>
+				<Route exact path="/" component={HomePage} />
+				<Route path="/shop" component={ShopPage} />
+			</Switch>
 		</>
 	);
 }
