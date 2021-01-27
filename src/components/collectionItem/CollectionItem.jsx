@@ -10,7 +10,7 @@ const CollectionItem = ({ id, name, price, imageUrl }) => {
 			/>
 			<div className="collection-footer">
 				<span className="name">{name}</span>
-				<sapn className="price">{price}</sapn>
+				<span className="price">{price}</span>
 			</div>
 		</div>
 	)
