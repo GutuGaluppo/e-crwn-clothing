@@ -1,4 +1,4 @@
-const DIRECTORY = [
+const DIRECTORY_DATA = [
 	{
 		title: 'hats',
 		imageUrl: 'https://i.ibb.co/cvpntL1/hats.png',
@@ -33,4 +33,4 @@ const DIRECTORY = [
 	}
 ]
 
-export default DIRECTORY
+export default DIRECTORY_DATA
