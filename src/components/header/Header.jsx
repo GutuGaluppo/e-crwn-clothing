@@ -12,7 +12,7 @@ import { auth } from '../../firebase/firebase.utils'
 import CartIcon from '../cart-icon/CartIcon'
 import CartDropdown from '../cart-dropdown/CartDropdown'
 
-import { HeaderContainer, LogoContainer, OptionsContainer, OptionLink, OptionDiv } from './header.styles'
+import { HeaderContainer, LogoContainer, OptionsContainer, OptionLink } from './header.styles'
 
 const Header = ({ currentUser, hidden }) => {
 	return (
@@ -29,9 +29,9 @@ const Header = ({ currentUser, hidden }) => {
 				</OptionLink>
 				{
 					currentUser ? (
-						<OptionDiv onClick={() => auth.signOut()}>
+						<OptionLink as='div' onClick={() => auth.signOut()}>
 							SIGN OUT
-						</OptionDiv>
+						</OptionLink>
 					) : (
 						<OptionLink to="/signin">
 							SIGN IN
