@@ -8,6 +8,7 @@ export const CollectionPreviewContainer = styled.div`
 	h1 {
 		font-size: 28px;
     margin-bottom: 25px;
+		cursor: pointer;
 	}		
 `
 export const PreviewDiv = styled.div`
