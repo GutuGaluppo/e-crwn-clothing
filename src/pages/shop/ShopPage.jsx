@@ -2,7 +2,7 @@ import React from 'react'
 import { Route } from 'react-router-dom'
 
 import CollectionsOverviewContainer from '../../components/collections-overview/CollectionOverview.container'
-import CollectionPageContainer from '../collection/CollectionPageContanier'
+import CollectionPageContainer from '../collection/CollectionPageContainer'
 
 import { connect } from 'react-redux'
 import { fetchCollectionsStartAsync } from '../../redux/shop/shop.actions'
