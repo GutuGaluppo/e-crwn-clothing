@@ -6,22 +6,31 @@ import './App.css'
 import Header from './components/header/Header'
 
 import HomePage from './pages/homepage/HomePage'
-import ShopPage from './pages/shop/ShopComponent'
+import ShopPage from './pages/shop/ShopPage'
 import SignInAndSignUp from './pages/singin-and-singup/SignInAndSignUp'
 import CheckoutPage from './pages/checkout/Checkout'
 
-import { auth, createUserProfileDocument } from './firebase/firebase.utils'
 import { setCurrentUser } from './redux/user/user.actions'
 
 import { createStructuredSelector } from 'reselect'
 import { selectCurrentUser } from './redux/user/user.selector'
+
+import {
+	auth,
+	createUserProfileDocument,
+	// addCollectionAndDocuments **
+} from './firebase/firebase.utils'
+// import { selectCollectionsForPreview } from './redux/shop/shop.selector' **
 
 class App extends React.Component {
 
 	unsubscribeFromAuth = null;
 
 	componentDidMount() {
-		const { setCurrentUser } = this.props
+		const {
+			setCurrentUser,
+			// collectionsArray **
+		} = this.props
 
 		this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
 			if (userAuth) {
@@ -36,6 +45,7 @@ class App extends React.Component {
 			}
 
 			setCurrentUser(userAuth)
+			// addCollectionAndDocuments('collections', collectionsArray.map(({ title, items }) => ({ title, items }))) **
 		});
 	}
 
@@ -64,7 +74,8 @@ class App extends React.Component {
 }
 
 const mapStateToProps = createStructuredSelector({
-	currentUser: selectCurrentUser
+	currentUser: selectCurrentUser,
+	// collectionsArray: selectCollectionsForPreview, **
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -72,3 +83,7 @@ const mapDispatchToProps = dispatch => ({
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
+
+
+
+// ** these lines of code programmaticlly add the store data into firebase (at once). So after that's done, there is no reason to keep them
